@@ -6,6 +6,9 @@
   --main-bg-color: #3a3633;
   --nav-height: 55px;
   --gap: calc(-20vh - 16px);
+  --gap: calc(-20vh - 16px);
+  --fast-animation:2s;
+  --long-animation:3s;
 }
 
 html{
@@ -50,6 +53,7 @@ nav {
   color:white;
   height: var(--nav-height);
   position: fixed;
+  z-index: 3;
 }
 
 .cool-link::after{
@@ -76,12 +80,17 @@ padding-left:10px;
 }
 
 .dlinks {
-  width:100%;
-  display:row;
-  position: absolute;
-  top: var(--nav-height);
-  left:0;
-  text-align:center;
+  list-style-type: none;
+  display:none;
+}
+
+.dlinks ul li{
+  margin: 0 20px;
+}
+
+.burger-menu{
+  background-color: #3a3633;
+  border-style: none;
 }
 
 .dlinks li, .dlinks a{
@@ -102,24 +111,6 @@ align-items:center;
 justify-content: center;
 }
 
-
-/* .logo {
-  height: 40px;
-  display: block;
-}
-
-.nav > a {
-  text-decoration: none;
-  color: white;
-  margin: 0 auto;
-  font-family: "poppins";
-  transition: opacity 0.2s ease-in-out;
-}
-
-.nav > a:hover {
-  opacity: 0.5;
-} */
-
 /*----------------------------CONTENT -------------------------*/
 
 
@@ -135,10 +126,10 @@ justify-content: center;
   align-items: center;
 }
 .bordered {
-  border: 3px solid white;
+  border: none;
   color: white;
   width: 80%;
-  display: flex;
+  display: table-column;
   justify-content: center;
   align-items: center;
 }
@@ -158,36 +149,18 @@ article {
 
 /* ------------------FEATURES --------------------------------*/
 
-.features-section, 
-.features,
-.borders {
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.borders {
+.borders{
   border: 2px solid rgb(211, 209, 209);
+  padding:2em;
   margin: 0 1em;
-  width: 40%;
   border-radius:25px;
-  flex-direction:column;
-  text-align: center;
-  padding:1em;
-}
-.features {
-  padding: 2em;
+  text-align:center;
 }
 
 
 .amazing-text{
   color:rgb(148, 148, 148);
-}
-
-.grid {
-  margin: 0;
-  display:flex;
-  flex-wrap:wrap;
 }
 
 .borders button {
@@ -238,6 +211,10 @@ article {
   font-size: 1.5rem;
 }
 
+.animation-box:hover{
+  animation: rotate360 var(--fast-animation) ease-in-out;
+}
+
 
 
 /* -----------SECOND BACKGROUND -----------------------------*/
@@ -265,21 +242,28 @@ article {
   height:35vh;
   object-fit: cover;
   width: calc(100% / 3);
+  position:relative;
 }
 
 .coolpic:hover{
   transform: scale(1.2);
 }
 
+.grid {
+  margin: 0;
+  display:flex;
+  flex-wrap:wrap;
+}
 /*-------------------NEWSLETTER------------------------*/
 
 .newsletter-section {
   position: relative;
-  top: var(--gap);
-  border-bottom: 2px solid #3a3633;
+  /* top: var(--gap); */
+  border-bottom: 2px dotted lightgrey;
   display: flex;
   justify-content: center;
   align-items: center;
+  position:relative;
 }
 
 .newsletter {
@@ -287,10 +271,12 @@ article {
   flex-direction: column;
   justify-content: center;
   align-content: stretch;
-  min-height: 15vh;
+  /* min-height: 40vh; */
   width: 35%;
   margin: 2em 0;
-  height:70vh;
+  /* height:70vh; */
+  position:relative;
+  padding-top:30px;
 }
 
 .email-input {
@@ -325,6 +311,8 @@ article {
   color:rgb(148, 148, 148);
   align-items:center;
   justify-content: center;
+  padding-bottom:50px;
+  padding-top:50px;
 }
 ul{
     list-style-type: none;
@@ -336,8 +324,9 @@ form {
 }
 
 li {
-  padding:2px;
-  text-align: left;
+  padding:3px;
+  align-items:left;
+  text-align:center;
 }
 
 .send{
@@ -348,76 +337,125 @@ li {
 /* DESKTOP VERSION */
 
 @media (min-width:768px) {
-/* --NAV-- */
+  /* --NAV-- */
+  
+  .burger-menu img{
+    display:none;
+    }
 
-.burger-menu img{
-  display:none;
+    .burger-menu{
+      display:none;
+    }
+  
+    .dlinks ul{
+      flex-direction: row;
+    }
+  
+    .dlinks {
+      position:relative;
+      top: 0;
+      visibility:visible;
+      display:flex;
+    }
+    .dlinks li{
+      padding:0 10px;
+    }
+  
+    /*---------------------CONTENT---------------------------------*/
+  
+    .hero-divide{
+      display:block;
+    }
+  
+    .hero-header h1{
+      font-size:2.5rem;
+    }
+  
+    .bordered {
+    border: 3px solid white;
+      color: white;
+      width: 80%;
+      display: flex;
+      flex-direction:row;
+    }
+  
+    .hero-header{
+      width:40%;
+    }
+  
+  .hero-dreams{
+    width:60%;
   }
-
-  .dlinks ul{
-    flex-direction: row;
-  }
-
-  .dlinks {
-    position:relative;
-    top: 0;
-    visibility:visible;
-  }
-  .dlinks li{
-    padding:0 10px;
-  }
-
-  /* .dlinks ul, li, a,{
+  
+  .hero-dreams article{
     display:flex;
-    flex-direction:row;
-  } */
-
-  /*CONTENT*/
-
-  .hero-divide{
-    display:block;
+    text-justify: auto;
+  }
+  
+  .hero-dreams p{
+    padding-right: 0.5em;
+  }
+  
+  
+  /*-------------------FEATURES--------------------*/
+  
+  .features{
+    display:flex;
+  }
+  
+  .borders{
+    margin: 3em 1em;
+    width:30%;
   }
 
-  .hero-header h1{
-    font-size:2.5rem;
+  .borders {
+    border: 2px solid rgb(211, 209, 209);
+    margin: 0 1em;
+    width: 40%;
+    border-radius:25px;
+    flex-direction:column;
+    text-align: center;
+    padding:1em;
+  }
+  .features {
+    padding: 2em;
+  }
+  
+  
+  .amazing-text{
+    color:rgb(148, 148, 148);
+  }
+  
+  
+  .borders button {
+    font-size: 1em;
+    border-radius:5px;
+    background-color:#3a3633;
+    color:white;
+    width:99%;
+    padding:0.5em;
+    font-family: 'poppins', sans-serif;
+  } 
+
+  /*---------------------FIRST BACKGROUND-------------------*/
+  /* NOCHANGES */
+
+
+  /*----------------------FANCYBOX-----------------------------*/
+
+
+  .animation-box{
+    left:50px;
+    width:25vw;
   }
 
-  .bordered {
-  border: 3px solid white;
-    color: white;
-    width: 80%;
-    display: flex;
-    flex-direction:row;
+  .animation-box:hover{
+    animation: rotate180 var(--long-animation) ease-in-out;
   }
 
-  .hero-header{
-    width:40%;
+
+/*GRADIENT BACKGROUND*/
+/* NOCHANGES */
+
+
   }
-
-.hero-dreams{
-  width:60%;
-}
-
-.hero-dreams article{
-  display:flex;
-  text-justify: auto;
-}
-
-.hero-dreams p{
-  padding-right: 0.5em;
-}
-
-/*FEATURES*/
-
-.features{
-  display:flex;
-}
-
-.borders{
-  margin: 3em 1em;
-  width:30%;
-}
-
-/*FIRST BACKGROUND*/
-
-}
