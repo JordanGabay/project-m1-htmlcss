@@ -1,1 +1,423 @@
 /* CSS here :) */
+@import url("resetCSS.css");
+
+:root {
+  --transparent-grey: rgba(43, 43, 43, 0.5);
+  --main-bg-color: #3a3633;
+  --nav-height: 55px;
+  --gap: calc(-20vh - 16px);
+}
+
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height)
+}
+
+section{
+  width:100%;
+}
+
+body {
+  margin: 0;
+  font-family: "poppins", sans-serif;
+}
+
+ul, li{
+  margin:0;
+  padding:0;
+}
+
+@keyframes rotate180 {
+  0% { left: 48px; transform: scale(1) rotate(0deg);}
+  80% { left: 300px; transform: scale(1) rotate(180deg); }
+  100% { left: 300px; transform: scale(0) rotate(180deg); }
+}
+
+@keyframes rotate360 {
+  100% { transform: rotate(360deg); }
+}
+
+/* ----------------------------NAV-- ------------------------*/
+.burger-menu img{
+  height:var(--nav-height)
+  }
+
+nav {
+  background-color: var(--main-bg-color);
+  display: flex;
+  justify-content: space-between;
+  width:100%;
+  color:white;
+  height: var(--nav-height);
+  position: fixed;
+}
+
+.cool-link::after{
+  content: '';
+  display:block;
+  width:0;
+  height:2px;
+  background:white;
+  transition: width .3s;
+}
+
+.cool-link:hover::after{
+  width: 100%;
+}
+
+nav a:hover{
+  opacity: 0.5;
+}
+
+
+nav img{
+height: var(--nav-height);
+padding-left:10px;
+}
+
+.dlinks {
+  width:100%;
+  display:row;
+  position: absolute;
+  top: var(--nav-height);
+  left:0;
+  text-align:center;
+}
+
+.dlinks li, .dlinks a{
+  height:var(--nav-height);
+  width:100%;
+}
+
+.dlinks ul, .dlinks li, .dlinks a{
+text-decoration: none;
+list-style-type:none;
+color:white;
+display:flex;
+flex-direction: column;
+background-color:var(--main-bg-color);
+width:100%;
+text-align:center;
+align-items:center;
+justify-content: center;
+}
+
+
+/* .logo {
+  height: 40px;
+  display: block;
+}
+
+.nav > a {
+  text-decoration: none;
+  color: white;
+  margin: 0 auto;
+  font-family: "poppins";
+  transition: opacity 0.2s ease-in-out;
+}
+
+.nav > a:hover {
+  opacity: 0.5;
+} */
+
+/*----------------------------CONTENT -------------------------*/
+
+
+ .content {
+  background-image: url(/imgs/bg.jpg);
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bordered {
+  border: 3px solid white;
+  color: white;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-dreams {
+  background-color: var(--transparent-grey);
+  padding: 1em;
+}
+
+article {
+  display: flex;
+}
+
+.hero-header h1 {
+  padding: 0 0.5em;
+}
+
+/* ------------------FEATURES --------------------------------*/
+
+.features-section, 
+.features,
+.borders {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.borders {
+  border: 2px solid rgb(211, 209, 209);
+  margin: 0 1em;
+  width: 40%;
+  border-radius:25px;
+  flex-direction:column;
+  text-align: center;
+  padding:1em;
+}
+.features {
+  padding: 2em;
+}
+
+
+.amazing-text{
+  color:rgb(148, 148, 148);
+}
+
+.grid {
+  margin: 0;
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.borders button {
+  font-size: 1em;
+  border-radius:5px;
+  background-color:#3a3633;
+  color:white;
+  width:99%;
+  padding:0.5em;
+  font-family: 'poppins', sans-serif;
+} 
+
+/* -----------------FIRST BACKGROUND ----------------------*/
+
+
+.cool{
+  background-color: var(--main-bg-color);
+  color:white;
+  min-height:35vh;
+  padding-top: 10vh;
+  padding:2em;
+}
+
+
+
+/*-------------------------FANCYBOX------------------------*/
+
+
+.animation-box {
+  border: 8px solid white;
+  background-color: var(--main-bg-color);
+  text-align: center;
+  height: 20vh;
+  width: 30vw;
+  position: relative;
+  top: -10vh;
+  left: calc(30vw - 8px); /* 50vw - width/2 - border */
+  z-index: 1;
+  left:30px;
+}
+
+.animation-box p {
+  color: white;
+  padding: 0 2em;
+} 
+.animation-box h3 {
+  color: red;
+  font-size: 1.5rem;
+}
+
+
+
+/* -----------SECOND BACKGROUND -----------------------------*/
+
+
+.gradient-section{
+  position: relative;
+  top:var(--gap);
+}
+
+.gradient{
+  background:black;
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0, 149, 255, 0.815) 100%);
+  color:white;
+  padding:2em;
+  padding-top:10vh;
+  text-align:right;
+  min-height:30vh;
+}
+
+/* ----------------COOL PHOTOS ----------------------------------------*/
+
+.coolpic{
+  width:100%;
+  height:35vh;
+  object-fit: cover;
+  width: calc(100% / 3);
+}
+
+.coolpic:hover{
+  transform: scale(1.2);
+}
+
+/*-------------------NEWSLETTER------------------------*/
+
+.newsletter-section {
+  position: relative;
+  top: var(--gap);
+  border-bottom: 2px solid #3a3633;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: stretch;
+  min-height: 15vh;
+  width: 35%;
+  margin: 2em 0;
+  height:70vh;
+}
+
+.email-input {
+  border: 2px solid #3a3633;
+  border-radius: 5px;
+  height: 30px;
+  display: flex;
+}
+
+.email-input input {
+  width: 100%;
+}
+
+.email-input img {
+  background-color: #3a3633;
+  padding: 2px 4px;
+}
+
+.checkbox-input {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-input input {
+  margin: 16px 16px 16px 0;
+}
+
+/*-----------------------------REGISTER TO OUR FORM-------------------------*/
+
+.list{
+  column-count:4;
+  color:rgb(148, 148, 148);
+  align-items:center;
+  justify-content: center;
+}
+ul{
+    list-style-type: none;
+}
+
+
+form {
+  text-align:center;
+}
+
+li {
+  padding:2px;
+  text-align: left;
+}
+
+.send{
+  background-color: #3a3633
+}
+
+
+/* DESKTOP VERSION */
+
+@media (min-width:768px) {
+/* --NAV-- */
+
+.burger-menu img{
+  display:none;
+  }
+
+  .dlinks ul{
+    flex-direction: row;
+  }
+
+  .dlinks {
+    position:relative;
+    top: 0;
+    visibility:visible;
+  }
+  .dlinks li{
+    padding:0 10px;
+  }
+
+  /* .dlinks ul, li, a,{
+    display:flex;
+    flex-direction:row;
+  } */
+
+  /*CONTENT*/
+
+  .hero-divide{
+    display:block;
+  }
+
+  .hero-header h1{
+    font-size:2.5rem;
+  }
+
+  .bordered {
+  border: 3px solid white;
+    color: white;
+    width: 80%;
+    display: flex;
+    flex-direction:row;
+  }
+
+  .hero-header{
+    width:40%;
+  }
+
+.hero-dreams{
+  width:60%;
+}
+
+.hero-dreams article{
+  display:flex;
+  text-justify: auto;
+}
+
+.hero-dreams p{
+  padding-right: 0.5em;
+}
+
+/*FEATURES*/
+
+.features{
+  display:flex;
+}
+
+.borders{
+  margin: 3em 1em;
+  width:30%;
+}
+
+/*FIRST BACKGROUND*/
+
+}
